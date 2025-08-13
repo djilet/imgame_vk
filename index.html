@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        const appStoreUrl = "https://apps.apple.com/us/app/appname/id1581107528";
+        const googlePlayUrl = "https://play.google.com/store/apps/details?id=com.roowix.imgame";
+
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isIOS = /iphone|ipad|ipod/.test(userAgent);
+        const isAndroid = /android/.test(userAgent);
+
+        if (isIOS) {
+            window.location.href = appStoreUrl;
+        } else if (isAndroid) {
+            window.location.href = googlePlayUrl;
+        } else {
+            document.body.innerHTML = "<h1>Скачайте приложение:</h1>" +
+                "<a href='" + appStoreUrl + "'>Для iOS</a><br>" +
+                "<a href='" + googlePlayUrl + "'>Для Android</a>";
+        }
+    </script>
+</head>
+<body></body>
+</html>
