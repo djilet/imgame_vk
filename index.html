@@ -2,23 +2,28 @@
 <html>
 <head>
     <script>
-        const appStoreUrl = "https://apps.apple.com/us/app/appname/id1581107528";
-        const googlePlayUrl = "https://play.google.com/store/apps/details?id=com.roowix.imgame";
+        document.addEventListener('DOMContentLoaded', function() {
+            const appStoreUrl = "https://apps.apple.com/us/app/appname/id1581107528";
+            const googlePlayUrl = "https://play.google.com/store/apps/details?id=com.roowix.imgame";
 
-        const userAgent = navigator.userAgent.toLowerCase();
-        const isIOS = /iphone|ipad|ipod/.test(userAgent);
-        const isAndroid = /android/.test(userAgent);
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isIOS = /iphone|ipad|ipod/.test(userAgent);
+            const isAndroid = /android/.test(userAgent);
 
-        if (isIOS) {
-            window.location.href = appStoreUrl;
-        } else if (isAndroid) {
-            window.location.href = googlePlayUrl;
-        } else {
-            document.body.innerHTML = "<h1>Скачайте приложение:</h1>" +
-                "<a href='" + appStoreUrl + "'>Для iOS</a><br>" +
-                "<a href='" + googlePlayUrl + "'>Для Android</a>";
-        }
+
+            if (isIOS) {
+                window.location.href = appStoreUrl;
+            } else if (isAndroid) {
+                window.location.href = googlePlayUrl;
+            } else {
+                const content = "<h1>Скачайте приложение:</h1>" +
+                    "<a href='" + appStoreUrl + "'>Для iOS</a><br>" +
+                    "<a href='" + googlePlayUrl + "'>Для Android</a>";
+                document.body.innerHTML = content;
+            }
+        });
     </script>
 </head>
-<body></body>
+<body>
+</body>
 </html>
