@@ -5,22 +5,24 @@
         document.addEventListener('DOMContentLoaded', function() {
             const appStoreUrl = "https://apps.apple.com/us/app/appname/id1581107528";
             const googlePlayUrl = "https://play.google.com/store/apps/details?id=com.roowix.imgame";
+            const landingUrl = "https://imgameapp.ru/";
 
             const userAgent = navigator.userAgent.toLowerCase();
             const isIOS = /iphone|ipad|ipod/.test(userAgent);
             const isAndroid = /android/.test(userAgent);
 
+            var appUrl = "";
+
 
             if (isIOS) {
-                window.location.href = appStoreUrl;
+                appUrl = appStoreUrl;
             } else if (isAndroid) {
-                window.location.href = googlePlayUrl;
+                appUrl = googlePlayUrl;
             } else {
-                const content = "<h1>Скачайте приложение:</h1>" +
-                    "<a href='" + appStoreUrl + "'>Для iOS</a><br>" +
-                    "<a href='" + googlePlayUrl + "'>Для Android</a>";
-                document.body.innerHTML = content;
+                appUrl = landingUrl;
             }
+
+            window.location.href = appUrl;
         });
     </script>
 </head>
